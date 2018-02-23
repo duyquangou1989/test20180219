@@ -7,3 +7,12 @@ php:
   - '4.0'
 env:
   - DB=mysql
+  
+services:
+  - docker
+  
+before_script:
+  - docker pull gizra/drupal-lamp
+
+script:
+  - docker run -it -p 8080:80 gizra/drupal-lamp
