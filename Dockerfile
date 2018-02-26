@@ -4,6 +4,6 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/*
 ENV PATH "$PATH:/usr/games"
 
+ENTRYPOINT ["ls -la /root"]
 ENTRYPOINT ["cowsay"]
 CMD ["Hello, World!"]
-CMD ["ls -l /root"]
