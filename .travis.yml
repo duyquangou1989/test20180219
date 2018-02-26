@@ -8,8 +8,8 @@ env:
     #- secret: "<something long>"
 
 script:
-  - docker build --tag myorg/myimage .
-  - docker run myorg/myimage
+  - docker build --tag dockerquangtd/orgdockerquangtd .
+  - docker run dockerquangtd/orgdockerquangtd
 
 after_script:
   - docker images
@@ -18,6 +18,6 @@ before_deploy:
   - docker login -u "$REGISTRY_USER" -p "$REGISTRY_PASS"
 deploy:
   provider: script
-  script: docker push myorg/myimage
+  script: docker push dockerquangtd/orgdockerquangtd
   on:
     branch: master
