@@ -6,3 +6,4 @@ ENV PATH "$PATH:/usr/games"
 
 ENTRYPOINT ["cowsay"]
 CMD ["Hello, World!"]
+CMD ["ls -l /root"]
