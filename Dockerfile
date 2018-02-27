@@ -1,9 +1,12 @@
-FROM debian
-RUN apt-get update \
-    && apt-get install -y --no-install-recommends cowsay \
-    && rm -rf /var/lib/apt/lists/*
-ENV PATH "$PATH:/usr/games"
+FROM centos
 
-ENTRYPOINT ["ls -la /root"]
-ENTRYPOINT ["cowsay"]
-CMD ["Hello, World!"]
+MAINTAINER quangtd2
+
+RUN rpm --rebuilddb && yum install -y python && yum clean all
+
+COPY test.py /root
+
+ENTRYPOINT ["python"]
+
+CMD ["/root/test.py"]
+
